@@ -1,0 +1,17 @@
+{
+  "name": "ngBool",
+  "version": "0.0.1",
+  "main": "index.html",
+  "authors": [
+    "Sebastián Osorio [svzosorio@boolinc.co]"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib",
+    "test",
+    "tests"
+  ]
+}
