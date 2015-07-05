@@ -1,6 +1,6 @@
-# ngBool
+# lol-tot
 
-This is a structure of a correct implementation of angular.js
+Tournament register for league of legends
 
 # Installing
 
