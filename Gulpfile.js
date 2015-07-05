@@ -1,42 +1,61 @@
-var gulp = require('gulp'),
-    connect = require('gulp-connect'),
-    jshint = require('gulp-jshint'),
-    historyApiFallback = require('connect-history-api-fallback'),
-    inject = require('gulp-inject'),
-    wiredep = require('wiredep').stream,
-    templateCache = require('gulp-angular-templatecache'),
-    gulpif = require('gulp-if'),
-    minifyCss = require('gulp-minify-css'),
-    useref = require('gulp-useref'),
-    uglify = require('gulp-uglify'),
-    uncss = require('gulp-uncss');
+var gulp                = require('gulp')
+,   browserSync         = require('browser-sync')
+,   jshint              = require('gulp-jshint')
+,   inject              = require('gulp-inject')
+,   wiredep             = require('wiredep').stream
+,   templateCache       = require('gulp-angular-templatecache')
+,   gulpif              = require('gulp-if')
+,   minifyCss           = require('gulp-minify-css')
+,   useref              = require('gulp-useref')
+,   uglify              = require('gulp-uglify')
+,   uncss               = require('gulp-uncss');
 
 gulp.task('webserver', function(){
-    connect.server({
-        root:'./app',
-        hostname: '0.0.0.0',
-        port: 9000,
-        liveReload: true,
-        middleware: function(connect, opt) {
-            return [ historyApiFallback ];
-        }
+    browserSync({
+      server: {
+        baseDir: __dirname + '/app/',
+        directory: true
+      },
+      ghostMode: false,
+      notify: false,
+      debounce: 200,
+      port: 8901,
+      startPath: 'index.html'
+    });
+
+    gulp.watch([
+      __dirname + '/app/**/*.{js,html,css,svg,png,gif,jpg,jpeg}'
+    ], {
+      debounceDelay: 400
+    }, function() {
+      browserSync.reload();
     });
 });
 
 gulp.task('dist-server', function(){
-    connect.server({
-        root: './dist',
-        hostname: '0.0.0.0',
-        port: 9002,
-        liveReload: true,
-        middleware: function(connect, opt) {
-            return [historyApiFallback];
-        }
+    browserSync({
+      server: {
+        baseDir: __dirname + '/app/',
+        directory: true
+      },
+      ghostMode: false,
+      notify: false,
+      debounce: 200,
+      port: 8901,
+      startPath: 'index.html'
+    });
+
+    gulp.watch([
+      __dirname + '/app/**/*.{js,html,css,svg,png,gif,jpg,jpeg}'
+    ], {
+      debounceDelay: 400
+    }, function() {
+      browserSync.reload();
     });
 });
 
 gulp.task('inject', function() {
-    var sources = gulp.src(['./app/js/**/*.js','./app/styles/**/*.css']);
+    var sources = gulp.src(['./app/js/**/*.js','./app/style/**/*.css']);
     return gulp.src('index.html', {cwd: './app'})
     .pipe(inject(sources, {
         read: false,
@@ -55,21 +74,13 @@ gulp.task('wiredep', function () {
 
 gulp.task('reload', function(){
     gulp.src('./app/**/*.{html,js,css}')
-    .pipe(connect.reload());
-});
-
-gulp.task('jshint', function(){
-    return gulp.src('./app/js/**/*.js')
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('templates', function(){
-    gulp.src('./app/views/**/*.tpl.html')
+    gulp.src('./app/views/**/*.html')
     .pipe(templateCache({
         root: 'views/',
-        module: 'evaluon.templates',
+        module: 'psAdvance.templates',
         standalone: true
     }))
     .pipe(gulp.dest('./app/js/templates'));
@@ -89,30 +100,30 @@ gulp.task('copy', function(){
     .pipe(gulp.dest('./dist'));
     gulp.src('./app/img/**')
     .pipe(gulp.dest('./dist/img'));
-    gulp.src('./app/styles/material-icons/**')
-    .pipe(gulp.dest('./dist/styles/material-icons'));
-    gulp.src('./app/styles/material-icons.css')
-    .pipe(gulp.dest('./dist/styles'));
+    gulp.src('./app/fonts/**')
+    .pipe(gulp.dest('./dist/fonts'));
+    gulp.src('./app/fonts/**')
+    .pipe(gulp.dest('./dist/fonts'));
+    gulp.src('./app/style/**')
+    .pipe(gulp.dest('./dist/style'));
 
-});
-
-gulp.task('uncss', function(){
-    gulp.src('./dist/styles/style.min.css')
-    .pipe(uncss({
-        html: ['./app/index.html', './app/views/404.tpl.html',
-        './app/views/about.tpl.html', './app/views/forgot.tpl.html',
-        './app/views/home.tpl.html']
-    }))
-    .pipe(gulp.dest('./dist/styles'));
+    gulp.src('./app/lib/angular-motion/**')
+    .pipe(gulp.dest('./dist/lib/angular-motion'));
+    gulp.src('./app/lib/angular-loading-bar/**')
+    .pipe(gulp.dest('./dist/lib/angular-loading-bar'));
+    gulp.src('./app/lib/components-font-awesome/**')
+    .pipe(gulp.dest('./dist/lib/components-font-awesome'));
+    gulp.src('./app/lib/angular-datepicker/**')
+    .pipe(gulp.dest('./dist/lib/angular-datepicker'));
 });
 
 gulp.task('watch', function(){
     gulp.watch(['./app/**/*.{html,js,css}'], ['reload']);
     gulp.watch(['./bower.json'], ['wiredep']);
     gulp.watch(['./app/js/**/*.js'], ['inject']);
-    gulp.watch(['./app/views/**/*.tpl.html'], ['templates']);
+    gulp.watch(['./app/views/**/*.html'], ['templates']);
 });
 
-gulp.task('prepare', ['templates', 'wiredep', 'inject']);
+gulp.task('prepare', ['wiredep', 'inject', 'templates']);
 gulp.task('build', ['prepare', 'compress', 'copy']);
-gulp.task('default', ['prepare', 'webserver', 'watch']);
+gulp.task('default', ['prepare', 'webserver', 'watch', 'inject']);
