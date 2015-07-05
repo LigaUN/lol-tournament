@@ -10,7 +10,7 @@
 
     }
 
-    function run() {
-
+    function run($log) {
+        $log.debug('load core module');
     }
 })();

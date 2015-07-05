@@ -2,7 +2,9 @@
     'use strict';
 
     angular
-        .module('lolTot', [])
+        .module('lolTot', [
+            'lolTot.core', 'lolTot.singup'
+        ])
         .config(config)
         .run(run);
 
@@ -11,7 +13,7 @@
     }
 
     function run($log) {
-        $log.info('Its running');
+        $log.info('It\'s running');
     }
 
 })();
