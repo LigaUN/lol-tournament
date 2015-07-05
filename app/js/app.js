@@ -1,10 +1,17 @@
-'use strict';
+(function(){
+    'use strict';
 
-angular.module('appName', [
+    angular
+        .module('ngBool', [])
+        .config(config)
+        .run(run);
 
-])
-.config(function(
-  
-){
+    function config(){
 
-});
+    }
+
+    function run($log) {
+        $log.info('Its running');
+    }
+
+})();
