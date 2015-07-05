@@ -5,7 +5,7 @@
     .module('lolTot.singup')
     .controller('SingupController', SingupController);
 
-    function SingupController($log) {
+    function SingupController($log) { 
         var vm = this;
 
         vm.summoners = [
