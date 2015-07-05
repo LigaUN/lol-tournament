@@ -73,7 +73,7 @@ gulp.task('wiredep', function () {
 });
 
 gulp.task('reload', function(){
-    gulp.src('./app/**/*.{html,js,css}')
+    gulp.src('./app/**/*.{html,js,css}');
 });
 
 gulp.task('templates', function(){
