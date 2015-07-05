@@ -13,32 +13,24 @@
             <md-list>
                 <md-list-item class="md-5-line" layout="row" ng-repeat="item in vm.summoners">
                     <img ng-if="!item.data" ng-class="{zoomIn: !animated, fadeOutDown: animated}"
-                    ng-src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/{{item.profileIconId}}.png" class="md-avatar animated" />
+                    ng-src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/{{item.profileIconId}}.png" class="md-avatar animated league" />
                     <img ng-if="item.data" ng-class="{flip: !animated, fadeOutDown: animated}"
                     ng-src="http://avatar.leagueoflegends.com/LA1/{{item.data.name}}.png" class="md-avatar animated" />
                     <div class="md-list-item-text">
-                        <md-autocomplete required
-                        md-input-name="summonerName"
-                        md-no-cache="ctrl.noCache"
-                        md-selected-item="ctrl.selectedItem"
-                        md-search-text="ctrl.searchText"
-                        md-items="item in ctrl.querySearch(ctrl.searchText)"
-                        md-item-text="item.display"
-                        md-floating-label="Nombre de invocador">
-                        <md-item-template>
-                            <span md-highlight-text="ctrl.searchText">{{item.display}}</span>
-                        </md-item-template>
-                        <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
-                            <div ng-message="required">You <b>must</b> have a favorite state.</div>
-                            <div ng-message="minlength">Your entry is not long enough.</div>
-                            <div ng-message="maxlength">Your entry is too long.</div>
-                        </div>
-                    </md-autocomplete>
-                </div>
-                <img ng-if="item.data" class="md-secondary league" ng-src="img/leagues/{{item.league.noseque}}"/>
-
-            </md-list-item>
-        </md-list>
-    </md-content>
-</div>
+                        <form name="summonerForm" ng-submit="vm.getSummoner(item.name, $index)"
+                        layout="row" layout-align="center center">
+                            <md-input-container>
+                                <label>Nombre de invocador</label>
+                                <input ng-model="item.name" type="text">
+                            </md-input-container>
+                            <md-button class="md-icon-button" aria-label="Favorite">
+                                <md-icon md-svg-icon="img/icons/send.svg"></md-icon>
+                            </md-button>
+                        </form>
+                    </div>
+                    <img ng-if="item.data" class="md-secondary league" ng-src="img/leagues/{{item.league.noseque}}"/>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
 </section>
