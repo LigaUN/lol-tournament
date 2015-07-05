@@ -10,8 +10,12 @@
         .config(config)
         .run(run);
 
-    function config(){
-
+    function config($mdThemingProvider, $mdIconProvider){
+        $mdThemingProvider.theme('default')
+            .primaryPalette('teal')
+            .accentPalette('blue')
+            .warnPalette('red')
+            .backgroundPalette('blue-grey');
     }
 
     function run($log) {

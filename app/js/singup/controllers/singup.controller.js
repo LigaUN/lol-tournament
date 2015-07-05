@@ -5,7 +5,7 @@
     .module('lolTot.singup')
     .controller('SingupController', SingupController);
 
-    function SingupController($log) { 
+    function SingupController($log, Summoner) {
         var vm = this;
 
         vm.summoners = [
@@ -25,5 +25,10 @@
                 profileIconId: 661
             }
         ];
+
+        Summoner.get('Señor Galleto').then(function(data){
+            console.log(data);
+            vm.summoners[0].data = data['señorgalleto'];
+        });
     }
 })();
