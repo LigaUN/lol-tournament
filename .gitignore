@@ -1,6 +1,6 @@
-*DS_Store
 node_modules
-templates
-/dist
-app/lib
+lib
 *.log
+*.DS_Store
+
+dist
