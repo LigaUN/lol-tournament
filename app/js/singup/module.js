@@ -12,7 +12,8 @@
             .state('singup', {
                 url: '',
                 templateUrl: 'views/singup/singup.tpl.html',
-                controller: 'SingupController'
+                controller: 'SingupController',
+                controllerAs: 'vm'
             });
     }
 
