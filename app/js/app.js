@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('ngBool', [])
+        .module('lolTot', [])
         .config(config)
         .run(run);
 

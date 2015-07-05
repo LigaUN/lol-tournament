@@ -1,15 +1,17 @@
 {
-    "name": "ngBool",
+    "name": "lolTot",
     "version": "0.1.0",
     "description": "angular structure",
     "main": "gulpfile.js",
-    "repository": "git://github.com/svzosorio/ngBool",
+    "repository": "git:github.com/LigaUN/lolTot",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
-        "ngBool",
+        "lolTot",
         "Angular",
+        "league of legends",
+        "tournament",
         "Bool"
     ],
     "author": "Sebastián Osorio <svzosorio@boolinc.co>",
