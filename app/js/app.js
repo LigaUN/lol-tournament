@@ -3,7 +3,9 @@
 
     angular
         .module('lolTot', [
-            'lolTot.core', 'lolTot.singup'
+            'lolTot.core', 'lolTot.singup',
+
+            'ngMaterial'
         ])
         .config(config)
         .run(run);
