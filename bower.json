@@ -13,5 +13,9 @@
     "app/lib",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular": "~1.4.1",
+    "ui-router": "~0.2.15"
+  }
 }
