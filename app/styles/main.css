@@ -1,0 +1,14 @@
+section#main{
+    margin-top: 3%;
+}
+
+.league{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    box-sizing: content-box;
+}
+
+md-autocomplete{
+    width: 400px;
+}
