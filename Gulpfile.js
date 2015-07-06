@@ -55,7 +55,7 @@ gulp.task('dist-server', function(){
 });
 
 gulp.task('inject', function() {
-    var sources = gulp.src(['./app/js/**/*.js','./app/style/**/*.css']);
+    var sources = gulp.src(['./app/js/**/*.js','./app/styles/**/*.css']);
     return gulp.src('index.html', {cwd: './app'})
     .pipe(inject(sources, {
         read: false,
@@ -126,4 +126,4 @@ gulp.task('watch', function(){
 
 gulp.task('prepare', ['wiredep', 'inject', 'templates']);
 gulp.task('build', ['prepare', 'compress', 'copy']);
-gulp.task('default', ['prepare', 'webserver', 'watch', 'wiredep', 'inject']);
+gulp.task('default', ['prepare', 'webserver', 'watch', 'inject', 'wiredep']);
