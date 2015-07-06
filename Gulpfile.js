@@ -126,4 +126,4 @@ gulp.task('watch', function(){
 
 gulp.task('prepare', ['wiredep', 'inject', 'templates']);
 gulp.task('build', ['prepare', 'compress', 'copy']);
-gulp.task('default', ['prepare', 'webserver', 'watch', 'inject']);
+gulp.task('default', ['prepare', 'webserver', 'watch', 'wiredep', 'inject']);
