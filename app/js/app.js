@@ -10,7 +10,10 @@
         .config(config)
         .run(run);
 
-    function config($mdThemingProvider, $mdIconProvider){
+    function config($httpProvider, $mdThemingProvider, $mdIconProvider){
+
+        $httpProvider.interceptors.push('interceptor');
+
         $mdThemingProvider.theme('default')
             .primaryPalette('teal')
             .accentPalette('blue-grey')
