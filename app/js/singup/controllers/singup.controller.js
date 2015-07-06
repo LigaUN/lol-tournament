@@ -28,6 +28,7 @@
             }
         ];
         vm.validator = {
+            maxPoints: maxPoints,
             noRepeat: function(){
                 this.leaguePoints();
                 return _.uniq(vm.summoners).length === 5;

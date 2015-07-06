@@ -4,9 +4,19 @@
             <div class="md-toolbar-tools">
                 <span>Liga UN <small>Torneo de vacaciones</small></span>
                 <span flex=""></span>
-                <md-button class="md-icon-button" aria-label="Favorite">
+                <md-button class="md-icon-button" aria-label="Ayuda">
                     <md-icon md-svg-icon="img/icons/help-circle.svg" style="color: rgba(255,255,255, 0.2)"></md-icon>
                 </md-button>
+            </div>
+            <div ng-if="vm.summoners.length > 0"
+                class="md-toolbar-tools md-toolbar-tools-bottom md-accent animated fadeIn"
+                layout="row" layout-align="end center">
+                <span ng-class="{warn: !vm.validator.leaguePoints()} ">
+                    {{vm.validator.totalPoints()}}
+                </span>
+                <span>
+                    /{{vm.validator.maxPoints}}
+                </span>
             </div>
         </md-toolbar>
         <md-content>
@@ -38,12 +48,6 @@
             </div>
         </md-list-item>
     </md-list>
-
-    <div layout="column" layout-align="center center" ng-show="!vm.validator.leaguePoints()">
-        <p class="md-body-1 warn">
-            El puntaje de tu equipo es superior al requerido por el torneo
-        </p>
-    </div>
 
     <form name="singupForm" ng-show="vm.validator.all()" class="animated slideInDownBig"
     layout="column" layout-align="center center">

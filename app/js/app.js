@@ -13,7 +13,7 @@
     function config($mdThemingProvider, $mdIconProvider){
         $mdThemingProvider.theme('default')
             .primaryPalette('teal')
-            .accentPalette('blue')
+            .accentPalette('blue-grey')
             .warnPalette('red')
             .backgroundPalette('blue-grey');
     }
