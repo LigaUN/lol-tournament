@@ -13,10 +13,9 @@
                 var $mdToast = $injector.get('$mdToast');
 
                 var messages = {
-                    404: 'Oppps, nuestros oompa loompas no encontraron el recurso solicitado',
+                    404: 'El recurso solicitado ha entrado en sigilo',
                     500: 'Se produjo un error en el servidor',
                     503: 'Servicio no disponible :('
-
                 };
 
                 var dontNotify = res.config.dontNotify;
