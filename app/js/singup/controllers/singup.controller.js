@@ -38,7 +38,6 @@
         vm.validator = {
             maxPoints: maxPoints,
             noRepeat: function(){
-                this.leaguePoints();
                 return _.uniq(vm.summoners).length === 5;
             },
             totalPoints: function(){
@@ -65,7 +64,7 @@
             },
             leaguePoints: function(){
 
-                return(this.totalPoints() <= maxPoints);
+                return this.totalPoints() <= maxPoints;
 
             },
             all: function(){
