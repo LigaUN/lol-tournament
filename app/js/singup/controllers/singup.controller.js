@@ -38,7 +38,14 @@
         vm.validator = {
             maxPoints: maxPoints,
             noRepeat: function(){
-                return _.uniq(vm.summoners).length === 5;
+                var isUndefined = 0;
+                _.each(vm.summoners, function(summoner){
+                    if(!summoner){
+                        isUndefined++;
+                    }
+                });
+
+                return (_.uniq(vm.summoners).length === 5) && (isUndefined === 0);
             },
             totalPoints: function(){
                 var totalPoints = 0;
