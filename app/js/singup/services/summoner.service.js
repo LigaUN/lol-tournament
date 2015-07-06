@@ -20,13 +20,14 @@
             });
         };
 
-        this.getLeague = function(summoner){
+        this.getLeague = function(summoner, dontNotify){
             return $http({
                 method: 'get',
                 url: api.summonerLeague(summoner),
                 params:{
                     'api_key': apiKey
-                }
+                },
+                dontNotify: dontNotify
             }).then(function(response){
                 return response.data[summoner];
             });

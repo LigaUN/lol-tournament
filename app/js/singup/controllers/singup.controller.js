@@ -93,7 +93,7 @@
 
         function getSummoner (summoner, index){
             Summoner.get(summoner).then(function(data){
-                Summoner.getLeague(data.id)
+                Summoner.getLeague(data.id, true)
                 .then(function(dataLeague){
                     data.league = dataLeague;
                     vm.summonersForm[index].data = data;
