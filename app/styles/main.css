@@ -5,12 +5,12 @@
     box-sizing: content-box;
 }
 
-.md-list-item-text>form>md-input-container{
-    width: 47vw;
-}
-
 md-list-item{
     padding: 0 15px 0 15px;
+}
+
+form[name="singupForm"]>md-input-container{
+    width: 50%;
 }
 
 @media screen and (max-width: 600px) {
@@ -24,7 +24,7 @@ md-list-item{
 
 @media screen and (min-width : 600px) and (max-width : 900px){
     .md-list-item-text>form>md-input-container{
-        width: 60vw;
+        width: 70vw;
     }
     section#main{
         margin-top: 3%;
@@ -32,7 +32,7 @@ md-list-item{
 }
 @media screen and (min-width : 900px){
     .md-list-item-text>form>md-input-container{
-        width: 43vw;
+        width: 50vw;
     }
     section#main{
         margin-top: 3%;
