@@ -45,7 +45,7 @@
                     }
                 });
 
-                return (_.uniq(vm.summoners).length === 5) && (isUndefined === 0);
+                return (_.uniq(vm.summoners).length === 5) && !isUndefined ;
             },
             totalPoints: function(){
                 var totalPoints = 0;
