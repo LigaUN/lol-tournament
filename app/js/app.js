@@ -10,9 +10,11 @@
         .config(config)
         .run(run);
 
-    function config($httpProvider, $mdThemingProvider, $mdIconProvider){
+    function config($httpProvider, $logProvider, $mdThemingProvider, $mdIconProvider){
 
         $httpProvider.interceptors.push('interceptor');
+
+        $logProvider.debugEnabled(false);
 
         $mdThemingProvider.theme('default')
             .primaryPalette('teal')
