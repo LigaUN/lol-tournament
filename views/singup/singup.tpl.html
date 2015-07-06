@@ -1,0 +1,105 @@
+<section id="main" layout="row" layout-align="center">
+    <div flex="60" flex-md="80" flex-sm="100" class="md-whiteframe-z1" layout-fill>
+        <md-toolbar class="md-tall">
+            <div class="md-toolbar-tools">
+                <span>Liga UN <small>Torneo de vacaciones</small></span>
+                <span flex=""></span>
+                <md-button class="md-icon-button" aria-label="Ayuda">
+                    <md-icon md-svg-icon="img/icons/help-circle.svg" style="color: rgba(255,255,255, 0.2)"></md-icon>
+                </md-button>
+            </div>
+            <div ng-if="vm.summoners.length > 0"
+                class="md-toolbar-tools md-toolbar-tools-bottom md-accent animated fadeIn"
+                layout="row" layout-align="end center">
+                <span ng-class="{warn: !vm.validator.leaguePoints()} ">
+                    {{vm.validator.totalPoints()}}
+                </span>
+                <span>
+                    /{{vm.validator.maxPoints}}
+                </span>
+            </div>
+        </md-toolbar>
+        <md-content>
+            <br>
+            <md-list>
+                <md-list-item class="md-5-line" ng-repeat="item in vm.summonersForm"
+                layout-align="center center">
+                    <img ng-if="!item.data" ng-class="{zoomIn: !animated, fadeOutDown: animated}"
+                    ng-src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/{{item.profileIconId}}.png" class="md-avatar animated" />
+                    <img ng-if="item.data" ng-class="{flip: !animated, fadeOutDown: animated}"
+                    ng-src="http://avatar.leagueoflegends.com/LA1/{{item.data.name}}.png"
+                    class="md-avatar animated" />
+                    <div class="md-list-item-text">
+                        <form name="summonerForm" ng-submit="vm.getSummoner(item.name, $index)"
+                        layout="row" layout-align="center center">
+                        <md-input-container>
+                            <label>Nombre de invocador</label>
+                            <input ng-model="item.name"
+                            ng-model-options="{ updateOn:'blur'}"
+                            ng-change="vm.getSummoner(item.name, $index)" type="text">
+                        </md-input-container>
+                        <md-button class="md-icon-button" aria-label="Favorite">
+                            <md-icon md-svg-icon="img/icons/send.svg"></md-icon>
+                        </md-button>
+                    </form>
+                </div>
+                <div ng-if="item.data.league">
+                    <img ng-if="item.data.league != 'unranked'" class="league animated" ng-class="{zoomIn: !animated, fadeOutDown: animated}"
+                    ng-src="img/leagues/{{item.data.league[0].tier}}_{{item.data.league[0].entries[0].division}}.png"/>
+                    <img ng-if="item.data.league == 'unranked' " class="league animated" ng-class="{zoomIn: !animated, fadeOutDown: animated}"
+                    ng-src="img/leagues/provisional.png"/>
+                </div>
+            </md-list-item>
+        </md-list>
+
+            <form name="singupForm" ng-show="vm.validator.all()" class="animated slideInDownBig"
+            ng-submit="vm.subscribeTeam(subscribe)" layout="column" layout-align="center center">
+
+                <div ng-hide="vm.mailchimp.result === 'success'" class="singupForm" layout="column"
+                layout-align="center center" >
+                    <md-input-container>
+                        <label>Nombre del equipo</label>
+                        <input ng-model="subscribe.TEAMNAME" name="teamName" type="text" required>
+                        <div ng-messages="singupForm.teamName.$error" ng-if="singupForm.teamName.$dirty">
+                            <div ng-if="singupForm.teamName.$error.required" ng-message="required">Campo obligatorio</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Correo de contacto</label>
+                        <input ng-model="subscribe.EMAIL" name="mail" type="mail" pattern="(\W|^)[\w.+\-]*@unal\.edu\.co(\W|$)" required>
+                        <div ng-messages="singupForm.mail.$error" ng-if="singupForm.mail.$dirty">
+                            <div ng-if="singupForm.mail.$error.required" ng-message="required">Campo obligatorio</div>
+                            <div ng-if="singupForm.mail.$error.pattern" ng-message="pattern">Tiene que ser un correo @unal.edu.co</div>
+                        </div>
+                    </md-input-container>
+
+                    <p class="md-body-2 warn" ng-show="vm.mailchimp.result == 'error'">
+                        Error: {{vm.mailchimp.msg}}
+                    </p>
+
+                    <md-button class="md-raised md-primary" ng-disabled="singupForm.$invalid">
+                        Inscribir
+                    </md-button>
+                </div>
+
+                <md-card ng-show="vm.mailchimp.result == 'success'" class="animated fadeIn success">
+                    <p class="md-body-2">
+                        {{vm.mailchimp.msg}}
+                    </p>
+                </md-card>
+            </form>
+            <br>
+        </md-content>
+    </div>
+</section>
+
+<footer>
+    <center>
+        <br>
+        <p class="md-caption">
+            Si te gustó esta aplicación no dudes en darle
+            <md-icon ng-style="{'font-size': '5px', height: '18px'}" md-svg-icon="img/icons/star.svg"></md-icon> en                         <a href="http://github.com/LigaUN/lolTot" target="_blank"><md-icon  ng-style="{'font-size': '5px', height: '18px'}"                     md-svg-icon="img/icons/github-box.svg"></md-icon></a>
+        </p>
+        <br>
+    </center>
+</footer>
