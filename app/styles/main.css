@@ -5,6 +5,10 @@
     box-sizing: content-box;
 }
 
+.warn{
+    color: rgb(244, 67, 54);
+}
+
 md-list-item{
     padding: 0 15px 0 15px;
 }

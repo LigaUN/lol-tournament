@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('lolTot.singup', ['ui.router'])
+        .module('lolTot.singup', ['ui.router', 'ngUnderscore'])
         .config(config)
         .run(run);
 

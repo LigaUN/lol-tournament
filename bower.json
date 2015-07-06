@@ -19,6 +19,7 @@
     "ui-router": "~0.2.15",
     "angular-material": "~0.10.0",
     "string-formatter": "~0.0.2",
-    "animate.css": "~3.3.0"
+    "animate.css": "~3.3.0",
+    "ngUnderscore": "~0.1.1"
   }
 }

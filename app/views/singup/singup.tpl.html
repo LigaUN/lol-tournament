@@ -39,7 +39,13 @@
         </md-list-item>
     </md-list>
 
-    <form name="singupForm"
+    <div layout="column" layout-align="center center" ng-show="!vm.validator.leaguePoints()">
+        <p class="md-body-1 warn">
+            El puntaje de tu equipo es superior al requerido por el torneo
+        </p>
+    </div>
+
+    <form name="singupForm" ng-show="vm.validator.all()" class="animated slideInDownBig"
     layout="column" layout-align="center center">
     <md-input-container>
         <label>Nombre del equipo</label>
