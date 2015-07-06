@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('lolTot.singup', ['ui.router', 'ngUnderscore'])
+        .module('lolTot.singup', ['ui.router', 'ngUnderscore', 'mailchimp'])
         .config(config)
         .run(run);
 
