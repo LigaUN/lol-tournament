@@ -11,11 +11,13 @@
         </md-toolbar>
         <md-content>
             <md-list>
-                <md-list-item class="md-5-line" layout="row" ng-repeat="item in vm.summoners">
+                <md-list-item class="md-5-line" ng-repeat="item in vm.summonersForm"
+                layout-align="left">
                     <img ng-if="!item.data" ng-class="{zoomIn: !animated, fadeOutDown: animated}"
-                    ng-src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/{{item.profileIconId}}.png" class="md-avatar animated league" />
+                    ng-src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/{{item.profileIconId}}.png" class="md-avatar animated" />
                     <img ng-if="item.data" ng-class="{flip: !animated, fadeOutDown: animated}"
-                    ng-src="http://avatar.leagueoflegends.com/LA1/{{item.data.name}}.png" class="md-avatar animated" />
+                    ng-src="http://avatar.leagueoflegends.com/LA1/{{item.data.name}}.png"
+                    class="md-avatar animated" />
                     <div class="md-list-item-text">
                         <form name="summonerForm" ng-submit="vm.getSummoner(item.name, $index)"
                         layout="row" layout-align="center center">
@@ -28,7 +30,12 @@
                             </md-button>
                         </form>
                     </div>
-                    <img ng-if="item.data" class="md-secondary league" ng-src="img/leagues/{{item.league.noseque}}"/>
+                    <div ng-if="item.data.league">
+                        <img ng-if="item.data.league != 'unranked'" class="league animated" ng-class="{zoomIn: !animated, fadeOutDown: animated}"
+                         ng-src="img/leagues/{{item.data.league[0].tier}}_{{item.data.league[0].entries[0].division}}.png"/>
+                        <img ng-if="item.data.league == 'unranked' " class="league animated" ng-class="{zoomIn: !animated, fadeOutDown: animated}"
+                         ng-src="img/leagues/provisional.png"/>
+                    </div>
                 </md-list-item>
             </md-list>
         </md-content>
