@@ -1,4 +1,4 @@
-<section id="main" layout="colum" layout-align="center">
+<section id="main" layout="row" layout-align="center">
     <div flex="60" flex-md="80" flex-sm="100" class="md-whiteframe-z1" layout-fill>
         <md-toolbar class="md-tall">
             <div class="md-toolbar-tools">
@@ -20,6 +20,7 @@
             </div>
         </md-toolbar>
         <md-content>
+            <br>
             <md-list>
                 <md-list-item class="md-5-line" ng-repeat="item in vm.summonersForm"
                 layout-align="center center">
@@ -91,3 +92,13 @@
         </md-content>
     </div>
 </section>
+
+<footer>
+    <center>
+        <br>
+        <p class="md-caption">
+            Si te gustó esta aplicación no dudes darle
+            <md-icon ng-style="{'font-size': '5px', height: '18px'}" md-svg-icon="img/icons/star.svg"></md-icon> en                         <a href="http://github.com/LigaUN/lolTot"><md-icon  ng-style="{'font-size': '5px', height: '18px'}"                     md-svg-icon="img/icons/github-box.svg"></md-icon></a>
+        </p>
+    </center>
+</footer>
