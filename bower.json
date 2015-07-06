@@ -20,6 +20,7 @@
     "angular-material": "~0.10.0",
     "string-formatter": "~0.0.2",
     "animate.css": "~3.3.0",
-    "ngUnderscore": "~0.1.1"
+    "ngUnderscore": "~0.1.1",
+    "angular-mailchimp": "~0.0.3"
   }
 }

@@ -5,11 +5,14 @@
     .module('lolTot.singup')
     .controller('SingupController', SingupController);
 
-    function SingupController($log, $timeout, leagues, maxPoints, _, Summoner) {
+    function SingupController(
+        $log ,$timeout, leagues, maxPoints, _, Summoner, Mailchimp
+        ) {
         var vm = this;
 
         vm.getSummoner = getSummoner;
         vm.summoners =[];
+        vm.mailchimp = {};
         vm.summonersForm = [
             {
                 profileIconId: 657
@@ -27,6 +30,11 @@
                 profileIconId: 661
             }
         ];
+
+        vm.getTop = function(){
+            return vm.summoners[4];
+        };
+
         vm.validator = {
             maxPoints: maxPoints,
             noRepeat: function(){
@@ -65,6 +73,18 @@
             }
         };
 
+        vm.subscribeTeam = function(subscribe){
+            subscribe.TOP = vm.summoners[0];
+            subscribe.JUNGLE = vm.summoners[1];
+            subscribe.MID = vm.summoners[2];
+            subscribe.ADC = vm.summoners[3];
+            subscribe.SUPPORT = vm.summoners[4];
+
+            Mailchimp.send(subscribe).then(function(data){
+                vm.mailchimp = data;
+            });
+        };
+
         function getSummoner (summoner, index){
             Summoner.get(summoner).then(function(data){
                 Summoner.getLeague(data.id)
@@ -80,6 +100,10 @@
                         vm.summoners[index] = data.name;
                     }
                 });
+            }).catch(function(){
+                if(vm.summonersForm[index] && vm.summonersForm[index].data){
+                    delete vm.summonersForm[index].data;
+                }
             });
         }
     }
