@@ -27,7 +27,7 @@ form[name="singupForm"]>md-input-container{
         width: 70vw;
     }
     section#main{
-        margin-top: 3%;
+        margin-top: 0%;
     }
 }
 @media screen and (min-width : 900px){
@@ -35,6 +35,6 @@ form[name="singupForm"]>md-input-container{
         width: 50vw;
     }
     section#main{
-        margin-top: 3%;
+        margin-top: 0%;
     }
 }
