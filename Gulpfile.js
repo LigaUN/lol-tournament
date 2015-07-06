@@ -98,8 +98,6 @@ gulp.task('copy', function(){
     gulp.src('./app/index.html')
     .pipe(useref())
     .pipe(gulp.dest('./dist'));
-    gulp.src('./app/views/**')
-    .pipe(gulp.dest('./dist/views'));
     gulp.src('./app/img/**')
     .pipe(gulp.dest('./dist/img'));
     gulp.src('./app/fonts/**')
