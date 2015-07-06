@@ -13,12 +13,9 @@
                 var $mdToast = $injector.get('$mdToast');
 
                 var messages = {
-                    400: 'Por favor verifique que los datos sean correctos y no estén duplicados',
-                    401: 'No estás autorizado para ver este contenido',
-                    403: 'No estás autorizado para ver este contenido',
-                    404: 'No existe',
+                    404: 'Oppps, nuestros oompa loompas no encontraron el recurso solicitado',
                     500: 'Se produjo un error en el servidor',
-                    503: 'Servicio no disponible'
+                    503: 'Servicio no disponible :('
 
                 };
 
