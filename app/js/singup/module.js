@@ -11,7 +11,7 @@
         $stateProvider
             .state('singup', {
                 url: '',
-                templateUrl: 'views/singup/singup.tpl.html',
+                templateUrl: '/views/singup/singup.tpl.html',
                 controller: 'SingupController',
                 controllerAs: 'vm'
             });
