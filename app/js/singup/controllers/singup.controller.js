@@ -6,8 +6,9 @@
     .controller('SingupController', SingupController);
 
     function SingupController(
-        $log ,$timeout, leagues, maxPoints, _, Summoner, Mailchimp
-        ) {
+        $log ,$timeout, leagues, maxPoints, _, Summoner, Mailchimp,
+        $mdDialog
+    ) {
         var vm = this;
 
         vm.getSummoner = getSummoner;
@@ -88,6 +89,16 @@
 
             Mailchimp.send(subscribe).then(function(data){
                 vm.mailchimp = data;
+            });
+        };
+
+        vm.help = function($event){
+            console.log('help');
+            $mdDialog.show({
+                controller: 'HelpController',
+                templateUrl: 'views/singup/help.tpl.html',
+                parent: angular.element(document.body),
+                targetEvent: $event,
             });
         };
 
