@@ -39,7 +39,7 @@
             iv: 384,
             v: 368
         },
-        maester: 448,
+        master: 448,
         challenger: 464
     };
 
