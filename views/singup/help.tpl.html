@@ -14,8 +14,30 @@
       <p>
           Para realizar el registro de su equipo se usa un sistema de puntos individuales, en el cual la sumatoria da el nivel del equipo. La tabla que se maneja es la siguiente:
       </p>
+      <md-list layout="row" layout-align="center">
+          <div>
+              <md-subheader class="md-no-sticky" style="text-align: center;">UNRANK<md-subheader>
+              <md-list-item class="md-3-line">
+                <img ng-src="img/leagues/provisional.png" class="md-avatar" alt="{{key}}"/>
+                <div class="md-list-item-text">
+                    <h3>< : {{vmd.leagues.noob}} </h3>
+                    <h3>30: {{vmd.leagues.unrank}} </h3>
+                </div>
+              </md-list-item>
+          </div>
+         <div ng-repeat="(key, value) in vmd.leagues"
+         ng-if="key != 'noob' && key != 'unrank' && key != 'master' && key != 'challenger'" >
+             <md-subheader class="md-no-sticky" style="text-align: center;">{{key | uppercase}}</md-subheader>
+             <md-list-item class="md-3-line">
+               <img ng-src="img/leagues/{{key | uppercase}}_I.png" class="md-avatar" alt="{{key}}"/>
+               <div class="md-list-item-text">
+                 <h3 ng-repeat="(key, value) in value">{{key | uppercase}}: {{value}}</h3>
+               </div>
+             </md-list-item>
+         </div>
+      </md-list>
       <p>
-          Esto se usa para que no existan desventaja en el torneo. La prioridad es buscar cubrir los <b>810 puntos</b>. La plataforma le dara la información correspondiente si su equipo excede el limite de puntos.
+          Esto se usa para que no existan desventaja en el torneo. La prioridad es buscar cubrir los <b>{{vmd.maxPoints}} puntos</b>. La plataforma le dara la información correspondiente si su equipo excede el limite de puntos.
       </p>
       <p>
           Se le aconseja a los equipos elaborar su propia sumatoria para poder alcanzar un nivel optimo. Si desea inscribirse debajo de la puntuación le deseamos suerte.
