@@ -46,6 +46,6 @@
     angular
     .module('lolTot.singup')
     .constant('leagues', leagues)
-    .value('maxPoints', 810);
+    .value('maxPoints', 950);
 
 })();
