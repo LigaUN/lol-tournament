@@ -35,18 +35,18 @@ gulp.task('webserver', function(){
 gulp.task('dist-server', function(){
     browserSync({
       server: {
-        baseDir: __dirname + '/app/',
+        baseDir: __dirname + '/dist/',
         directory: true
       },
       ghostMode: false,
       notify: false,
       debounce: 200,
-      port: 8901,
+      port: 8902,
       startPath: 'index.html'
     });
 
     gulp.watch([
-      __dirname + '/app/**/*.{js,html,css,svg,png,gif,jpg,jpeg}'
+      __dirname + '/dist/**/*.{js,html,css,svg,png,gif,jpg,jpeg}'
     ], {
       debounceDelay: 400
     }, function() {
