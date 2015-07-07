@@ -16,7 +16,6 @@
         vm.getSummoner = getSummoner;
         vm.summoners =[];
         vm.mailchimp = {};
-        vm.help = help;
         vm.summonersForm = [
             {
                 profileIconId: 657
