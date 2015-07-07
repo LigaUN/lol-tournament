@@ -29,6 +29,9 @@ form md-input-container{
     .md-list-item-text>form>md-input-container{
         width: 60vw;
     }
+    .md-list-item-text>form>md-input-container.submitted{
+        width: 43vw;
+    }
     section#main{
         margin-top: 0;
     }
@@ -36,7 +39,10 @@ form md-input-container{
 
 @media screen and (min-width : 600px) and (max-width : 900px){
     .md-list-item-text>form>md-input-container{
-        width: 70vw;
+        width: 50vw;
+    }
+    .md-list-item-text>form>md-input-container.submitted{
+        width: 40vw;
     }
     section#main{
         margin-top: 0%;
@@ -44,7 +50,11 @@ form md-input-container{
 }
 @media screen and (min-width : 900px){
     .md-list-item-text>form>md-input-container{
-        width: 50vw;
+        width: 46vw;
+    }
+
+    .md-list-item-text>form>md-input-container.submitted{
+        width: 42vw;
     }
     section#main{
         margin-top: 0%;

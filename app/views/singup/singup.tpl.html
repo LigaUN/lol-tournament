@@ -32,7 +32,7 @@
                     <div class="md-list-item-text">
                         <form name="summonerForm" ng-submit="vm.getSummoner(item.name, $index)"
                         layout="row" layout-align="center center">
-                        <md-input-container>
+                        <md-input-container ng-class="{submitted: item.data}">
                             <label>Nombre de invocador</label>
                             <input ng-model="item.name"
                             ng-model-options="{ updateOn:'blur'}"
