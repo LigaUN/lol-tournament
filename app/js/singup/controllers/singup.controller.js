@@ -11,9 +11,12 @@
     ) {
         var vm = this;
 
+        help();
+
         vm.getSummoner = getSummoner;
         vm.summoners =[];
         vm.mailchimp = {};
+        vm.help = help;
         vm.summonersForm = [
             {
                 profileIconId: 657
@@ -92,7 +95,7 @@
             });
         };
 
-        vm.help = function($event){
+        function help($event){
             console.log('help');
             $mdDialog.show({
                 controller: 'HelpController',
@@ -101,7 +104,7 @@
                 parent: angular.element(document.body),
                 targetEvent: $event,
             });
-        };
+        }
 
         function getSummoner (summoner, index){
             Summoner.get(summoner).then(function(data){
