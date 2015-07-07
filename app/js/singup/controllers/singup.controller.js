@@ -96,6 +96,7 @@
             console.log('help');
             $mdDialog.show({
                 controller: 'HelpController',
+                controllerAs: 'vmd',
                 templateUrl: 'views/singup/help.tpl.html',
                 parent: angular.element(document.body),
                 targetEvent: $event,
