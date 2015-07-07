@@ -13,9 +13,9 @@
       <p>
           Para realizar el registro de su equipo se usa un sistema de puntos individuales, en el cual la sumatoria da el nivel del equipo. La tabla que se maneja es la siguiente:
       </p>
-      <md-list layout="row" layout-align="center">
+      <md-list layout-lg="column" layout-gt-lg="row" layout-sm="column" layout-sm="column" layout-gt-sm="column" layout-md="column" layout-gt-md="column" layout-align="center">
           <div>
-              <md-subheader class="md-no-sticky" style="text-align: center;">UNRANK<md-subheader>
+              <md-subheader class="md-no-sticky">UNRANK<md-subheader>
               <md-list-item class="md-3-line">
                 <img ng-src="img/leagues/provisional.png" class="md-avatar" alt="{{key}}"/>
                 <div class="md-list-item-text">
@@ -26,7 +26,7 @@
           </div>
          <div ng-repeat="(key, value) in vmd.leagues"
          ng-if="key != 'noob' && key != 'unrank' && key != 'master' && key != 'challenger'" >
-             <md-subheader class="md-no-sticky" style="text-align: center;">{{key | uppercase}}</md-subheader>
+             <md-subheader class="md-no-sticky">{{key | uppercase}}</md-subheader>
              <md-list-item class="md-3-line">
                <img ng-src="img/leagues/{{key | uppercase}}_I.png" class="md-avatar" alt="{{key}}"/>
                <div class="md-list-item-text">
