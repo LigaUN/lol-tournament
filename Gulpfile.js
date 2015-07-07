@@ -32,7 +32,7 @@ gulp.task('webserver', function(){
     });
 });
 
-gulp.task('dist-server', function(){
+gulp.task('dist-serve', function(){
     browserSync({
       server: {
         baseDir: __dirname + '/dist/',
