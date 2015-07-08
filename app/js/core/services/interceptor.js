@@ -12,7 +12,7 @@
                 var $mdToast = $injector.get('$mdToast');
 
                 var messages = {
-                    0: 'Servicio no disponible, report RITO',
+                    0: 'Servicio no disponible, report rito',
                     401: 'Acceso denegado, report Galleto',
                     404: 'El recurso solicitado ha entrado en sigilo',
                     500: 'Se produjo un error en el servidor',
