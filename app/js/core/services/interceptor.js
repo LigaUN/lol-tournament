@@ -9,10 +9,11 @@
 
         return {
             responseError: function(res){
-
                 var $mdToast = $injector.get('$mdToast');
 
                 var messages = {
+                    0: 'Servicio no disponible, report RITO',
+                    401: 'Acceso denegado, report Galleto',
                     404: 'El recurso solicitado ha entrado en sigilo',
                     500: 'Se produjo un error en el servidor',
                     503: 'Servicio no disponible :('
