@@ -4,7 +4,7 @@
     angular
         .module('lolTot.singup')
         .service('Summoner', Summoner)
-        .value('apiKey', '2cbc298c-f2f8-4af2-b1df-2739b768cdef');
+        .value('apiKey', 'e053d4b7-1028-4774-8687-22f0207d2909');
 
     function Summoner($http,api, apiKey) {
 
