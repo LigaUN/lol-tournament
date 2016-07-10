@@ -3,7 +3,7 @@
 
     var mailchimp = {
         dc: 'us11',
-        id: '098b71b7e8',
+        id: '6ea35dbfe4',
         u:  'd158b283d7dc31c221cb2ca5a',
         username:'svzosorio'
     };
